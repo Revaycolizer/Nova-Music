@@ -76,6 +76,9 @@
     margin: 30px;
     padding: 10px;
   }
+  .fu{
+    padding: 20px;
+  }
 }
 @media(min-width:548px){
   .ho{
