@@ -10,8 +10,7 @@ module.exports = {
   ],
   theme: {
     colors:{
-      'hov': '#F2DFF1',
-      'black':'#000000'
+      'hov': '#F2DFF1'
     },
     extend: {},
   },
