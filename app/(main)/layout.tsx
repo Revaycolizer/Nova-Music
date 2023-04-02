@@ -1,4 +1,5 @@
 import Menu from "./menu";
+// import Search from './search'
 
 export default function RootLayout({
   children,
@@ -7,11 +8,12 @@ export default function RootLayout({
 }) {
   return (
     <section className="flex">
-      <aside className="w-1/4">
+      <aside className="lg:w-1/4">
+      {/* <Search/> */}
         <Menu />
         {/* <Play /> */}
       </aside>
-      <main>{children}</main>
+      <main >{children}</main>
     </section>
   );
 }

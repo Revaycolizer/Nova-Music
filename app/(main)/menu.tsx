@@ -9,8 +9,8 @@ import album from "../icons/album.png";
 
 export default function menu() {
   return (
-    <section className="fixed w-1/4 h-full shadow-xl bg-white-900">
-      <div className="px-10 py-40 center">
+    <section className="hidden lg:block fixed w-0.5/4 md:w-2/4 lg:w-1/4 h-full shadow-xl bg-white-900">
+      <div className="lg:px-10 py-20 center">
         <Link href="/home">
           <section className="flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
             <Image height={34} width={34} src={home} alt="play"></Image>
@@ -18,7 +18,7 @@ export default function menu() {
           </section>
         </Link>
         <section className="flex items-start px-4 pt-3 rounded-full bg-hov hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-          <Image height={34} width={34} src={cat} alt="play"></Image>
+          <Image className="w-8 h-8" src={cat} alt="play"></Image>
           <h2 className="px-6 mb-4 text-xl font-medium text-black">Category</h2>
         </section>
         <Link href="/artist">
@@ -29,7 +29,7 @@ export default function menu() {
         </Link>
         <Link href="/album">
           <section className="flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-            <Image height={34} width={34} src={album} alt="play"></Image>
+            <Image height={30} width={30} src={album} alt="play"></Image>
             <h2 className="px-6 mb-4 text-xl font-medium text-black">Album</h2>
           </section>
         </Link>
