@@ -3,6 +3,9 @@ import Search from '../search'
 import Image from 'next/image'
 import head from './test images/ya.jpg'
 import gal from './test images/ye.jpg'
+import voi from './test images/yo.jpg'
+import beau from './test images/yu.jpg'
+
 export const metadata={
     title:'Home | Nova Music'
 }
@@ -26,6 +29,8 @@ export default function page(){
           <section className='grid py-6 grid-cols-2 gap-4 lg:gap-0'>
             <Image className='rounded-3xl w-4/4 h-2/4 lg:w-4/6 lg:h-3/5' src={head} alt='yo'/>
             <Image className='rounded-3xl w-4/4 h-2/4 lg:w-4/6 lg:h-3/5' src={gal} alt='gal'/>
+            <Image className='rounded-3xl w-4/4 h-2/4 lg:w-4/6 lg:h-3/5' src={voi} alt='yo'/>
+            <Image className='rounded-3xl w-4/4 h-2/4 lg:w-4/6 lg:h-3/5' src={beau} alt='gal'/>
            
 
           </section>
