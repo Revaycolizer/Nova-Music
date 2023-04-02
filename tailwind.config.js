@@ -12,6 +12,7 @@ module.exports = {
     extend:{
       colors:{
         'hov': '#F2DFF1',
+        'uni':'#707070'
       
       }
     }
