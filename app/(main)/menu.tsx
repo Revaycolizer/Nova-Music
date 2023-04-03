@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 import play from "../icons/icons8-customer-30.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import home from "../icons/home-page.png";
 import cat from "../icons/circle.png";
 import album from "../icons/album.png";
@@ -10,37 +13,37 @@ import album from "../icons/album.png";
 export default function menu() {
   return (
     <section className="hidden lg:block fixed w-0.5/4 md:w-2/4 lg:w-1/4 h-full shadow-xl bg-white-900">
-      <div className="lg:px-10 py-20 center">
-        <Link href="/home">
-          <section className="flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-            <Image height={34} width={34} src={home} alt="play"></Image>
-            <h2 className="px-6 mb-4 text-xl font-medium text-black">Home</h2>
-          </section>
-        </Link>
-        <section className="flex items-start px-4 pt-3 rounded-full bg-hov hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-          <Image className="w-8 h-8" src={cat} alt="play"></Image>
-          <h2 className="px-6 mb-4 text-xl font-medium text-black">Category</h2>
-        </section>
-        <Link href="/artist">
-          <section className="flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-            <Image src={play} alt="play"></Image>
-            <h2 className="mb-4 text-xl font-medium text-black px-7">Artist</h2>
-          </section>
-        </Link>
-        <Link href="/album">
-          <section className="flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov active:bg-hov focus:outline-none focus:ring focus:ring-hov">
-            <Image height={30} width={30} src={album} alt="play"></Image>
-            <h2 className="px-6 mb-4 text-xl font-medium text-black">Album</h2>
-          </section>
-        </Link>
-        <ul className="flex flex-col text-sm text-white">
-          {/* {users?.map(user=>{
-                    <li key={user.id}>
-                        <Link href={`/users/${user.id}`}>{user.name}</Link>
-                    </li>
-                })} */}
-        </ul>
+      <div className="py-20 lg:px-10 center">
+        <AppLink href="/home" image={home} title="Home" />
+        <AppLink href="/category" image={cat} title="Category" />
+        <AppLink href="/artist" image={play} title="Artist" />
+        <AppLink href="/album" image={album} title="Album" />
       </div>
     </section>
   );
 }
+
+const AppLink = ({
+  href,
+  image,
+  title,
+}: {
+  href: string;
+  image: StaticImageData;
+  title: string;
+}) => {
+  const isActive = "/" + useSelectedLayoutSegment() === href;
+
+  return (
+    <Link href={href}>
+      <section
+        className={`flex items-start px-4 pt-3 rounded-full cursor-pointer hover:bg-hov focus:outline-none focus:ring focus:ring-hov ${
+          isActive && "bg-hov outline"
+        }}`}
+      >
+        <Image height={30} width={30} src={image} alt="play"></Image>
+        <h2 className="px-6 mb-4 text-xl font-medium text-black">{title}</h2>
+      </section>
+    </Link>
+  );
+};
